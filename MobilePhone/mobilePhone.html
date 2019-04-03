@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="calculator.css">
+	<style type="text/css">
+		.container{
+			width: 250px;
+			height: 400px;
+			background-color: orange;
+		}
+		.notification{
+			width: 100%;
+			height: 5%;
+			background-color: black;
+			cursor: pointer;
+		}
+		.notificationContent{
+			position: absolute;
+			background-color: navy;
+			width: 100%;
+			text-align: center;
+			height: 0;
+			overflow: hidden;
+			z-index: 1;
+			transition: 1s;
+		}
+		.display{
+			width: 100%;
+			height: 85%;
+			background-color: green;
+			position: relative;
+			/*background-image: url("e5cb7a7508f8089221d98867abc51a75.jpg");
+			background-repeat: no-repeat;
+		  	background-size: cover;*/
+		}
+		.shift{
+			padding: 3px;
+			background-color: navy;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			cursor: pointer;
+		}
+		.appBlock{
+			padding: 2% 0% 0% 0%;
+			width: 25%;
+			height: 98%;
+			background-color: white;
+			display:inline-block;
+			text-align: center;
+		}
+		.appImg{
+			margin-left: 10%;
+			width: 80%;
+			height: 75%;
+			background: purple;
+			background-repeat: no-repeat;
+		  	background-size: cover;
+		}
+		.left{
+			left: 0;
+		}
+		.right{
+			right: 0;
+		}
+
+		.row1{
+			text-align: center;
+			height: 20%;
+		}
+		.googleAssistant{
+			width: 80%;
+			background-color: white;
+			border-radius: 30px;
+			margin-top: 10px;
+			padding: 3%;
+			display: inline-block;
+			text-align: left;
+		}
+
+		.row2{
+			height: 20%;
+			font-size: 30px;
+			text-align: center;
+		}
+
+		.row3{
+			height: 20%;
+			font-size: 30px;
+			text-align: center;
+		}
+
+		.row4{
+			height: 20%;
+			font-size: 30px;
+			text-align: center;
+		}
+
+		.row5{
+			height: 85%;
+			font-size: 30px;
+			background-color: pink;
+			text-align: center;
+		}
+		.Doc{
+			width: 100%;
+			height: 20%;
+			/*background-color: orange;*/
+			position: absolute;
+			bottom: 0%;
+			text-align: center;
+			transition: 1s;
+			overflow: hidden;
+		}
+		.line{
+			width: 16px;
+			height: 2%;
+			display: inline-block;
+			background-color: white;
+			cursor: pointer;
+		}
+		.DocContent{
+			opacity: 0;
+			width: 100%;
+			height: 95%;
+			transition: 1s;
+			font-size: 30px;
+		}
+		.displayblock{
+			width: 100%;
+			height: 100%;
+			display: block;
+			color: purple;
+		}
+
+		.buttons{
+			width: 100%;
+			height: 10%;
+			background-color: purple;
+		}
+		.back, .home, .stack{
+			width: 33.3%;
+			height: 100%;
+		}
+
+
+		button{
+			border: none;
+			background-color: transparent;
+		}
+
+		.displayButtons{
+			display: inline-block;
+			margin: 5%;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="notification">
+		
+	</div>
+	<div class="display">
+		<div class="notificationContent">
+			<div class="displayButtons" ><i class="fa fa-calculator"></i></div>
+			<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+			<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+			<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+		</div>
+		<div class="Doc">
+			<div class="line"></div>
+			<div class="row5">
+				<div class="appBlock">
+					<div class="appImg"></div>
+				</div><div class="appBlock">
+					<div class="appImg"></div>
+				</div><div class="appBlock">
+					<div class="appImg"></div>
+				</div><div class="appBlock">
+					<div class="appImg"></div>
+				</div>
+			</div>
+			<div class="DocContent">
+				<div class="appBlock">
+					<div class="appImg"></div>
+				</div><div class="appBlock">
+					<div class="appImg"></div>
+				</div><div class="appBlock">
+					<div class="appImg"></div>
+				</div><div class="appBlock">
+					<div class="appImg"></div>
+				</div>
+			</div>
+		</div>
+		<!-- display start -->
+		<div class="displayblock">
+			<div class="left shift" onclick="slideShow(-1)"><i class="fa fa-angle-left"></i></div>
+			<div class="right shift"  onclick="slideShow(1)"><i class="fa fa-angle-right"></i></div>
+			<div class="row1">
+				<div class="googleAssistant">
+					<i class="fa fa-google" style="float: left;"></i>
+					<i class="fa fa-microphone" style="float: right;"></i>
+				</div>
+			</div>
+			<div class="row2">
+				<div class="appBlock">
+					<div class="appImg icon" style="background-image: url('calculator.png');"></div>
+				</div><div class="appBlock">
+					<div class="appImg"></div>
+				</div><div class="appBlock">
+					<div class="appImg"></div>
+				</div><div class="appBlock">
+					<div class="appImg"></div>
+				</div>
+			</div>
+			<div class="row3">
+				<div class="appBlock">
+					<div class="appImg"></div>
+				</div><div class="appBlock">
+					<div class="appImg"></div>
+				</div><div class="appBlock">
+					<div class="appImg"></div>
+				</div><div class="appBlock">
+					<div class="appImg"></div>
+				</div>
+			</div>
+			<div class="row4">
+				<div class="appBlock">
+					<div class="appImg"></div>
+				</div><div class="appBlock">
+					<div class="appImg"></div>
+				</div><div class="appBlock">
+					<div class="appImg"></div>
+				</div><div class="appBlock">
+					<div class="appImg"></div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="displayblock" style="color: red;">
+			<div class="left shift" onclick="slideShow(-1)"><i class="fa fa-angle-left"></i></div>
+			<div class="right shift"  onclick="slideShow(1)"><i class="fa fa-angle-right"></i></div>
+			<div class="row1">
+				&nbsp
+				
+			</div>
+			<div class="row2">
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+			</div>
+			<div class="row3">
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+			</div>
+			<div class="row4">
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+			</div>
+		</div>
+		<div class="displayblock" style="color: blue;">
+			<div class="left shift" onclick="slideShow(-1)"><i class="fa fa-angle-left"></i></div>
+			<div class="right shift"  onclick="slideShow(1)"><i class="fa fa-angle-right"></i></div>
+			<div class="row1">
+				&nbsp
+				
+			</div>
+			<div class="row2">
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+			</div>
+			<div class="row3">
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+			</div>
+			<div class="row4">
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+				<div class="displayButtons" id="calculator"><i class="fa fa-calculator"></i></div>
+			</div>
+		</div>
+		<!-- display end -->
+		<div class="Calcontainer">
+			<div class="history">
+				<!-- <input type="button" value="-" class="MFClose" id="minimize"><input type="button" value="D" class="MFClose" id="fullscreen"><input type="button" value="&times" class="MFClose" id="close"> -->
+			</div>
+			<div class="Ans">
+				<input type="text" name="" id="query">
+				<p id="ans"></p>
+			</div>
+			<div class="button">
+				<div class="subButton"><Button onClick="queryUpdate('AC')">AC</Button><Button onClick="queryUpdate('X')"><div style="display: inline-block;border: 1px solid black;width: 15px;height: 15px;border-top-left-radius: 50%;border-bottom-left-radius: 50%;">&times</div></Button><Button onClick="queryUpdate('%')"><i class="fas fa-percentage"></i></Button><Button onClick="queryUpdate('/')"><i class="fas fa-divide"></i></Button></div>
+				<div class="subButton"><Button onClick="queryUpdate(7)">7</Button><Button onClick="queryUpdate(8)">8</Button><Button onClick="queryUpdate(9)">9</Button><Button onClick="queryUpdate('*')">x</Button></div>
+				<div class="subButton"><Button onClick="queryUpdate(4)">4</Button><Button onClick="queryUpdate(5)">5</Button><Button onClick="queryUpdate(6)">6</Button><Button onClick="queryUpdate('-')"><i class="fas fa-minus"></i></Button></div>
+				<div class="subButton"><Button onClick="queryUpdate(1)">1</Button><Button onClick="queryUpdate(2)">2</Button><Button onClick="queryUpdate(3)">3</Button><Button onClick="queryUpdate('+')"><i class="fas fa-plus"></i></Button></div>
+				<div class="subButton"><Button onClick="queryUpdate('')">s</Button><Button onClick="queryUpdate(0)">0</Button><Button onClick="queryUpdate('.')">.</Button><Button onClick="solveQuery()"><i class="fas fa-equals"></i></Button></div>
+			</div>
+		</div>
+	</div>
+	<div class="buttons">
+		<button class="stack"></button><button class="home"></button><button class="back"></button>
+	</div>
+</div>
+
+
+<script type="text/javascript" src="mobilejs.js">
+</script>
+<script type="text/javascript">
+	var notification = document.querySelector('.notification')
+	var notificationContent = document.querySelector('.notificationContent')
+	notification.addEventListener('click',()=>{
+		if(notificationContent.style.height == '100%'){
+			notificationContent.style.height = '0%'
+		}else{
+			notificationContent.style.height = '100%'
+		}
+	})
+</script>
+</body>
+</html>
